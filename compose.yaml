@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+    database:
+        image: 'mysql:latest'
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: main
+            MYSQL_USER: symfony
+            MYSQL_PASSWORD: app
+        ports:
+            - '3306:3306'
