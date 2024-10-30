@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CompanyController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+<h1>Companies</h1>
+
+    <form method="POST" action="{{ path('company_create') }}">
+        <div>
+            <label for="name">Company Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="vatNumber">VAT Number:</label>
+            <input type="text" id="vatNumber" name="vatNumber" required>
+        </div>
+        <div>
+            <label for="street">Street:</label>
+            <input type="text" id="street" name="street" required>
+        </div>
+        <div>
+            <label for="houseNo">House Number:</label>
+            <input type="number" id="houseNo" name="houseNo" required>
+        </div>
+        <div>
+            <label for="busNo">Bus Number:</label>
+            <input type="text" id="busNo" name="busNo" required>
+        </div>
+        <div>
+            <label for="postcode">Postcode:</label>
+            <input type="text" id="postcode" name="postcode" required>
+        </div>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+        </div>
+        <div>
+            <button type="submit">Add Company</button>
+        </div>
+    </form>
+    <h1>Company list:</h1>
+
+    This friendly message is coming from:
+    <ul>
+        {% for company in companies %}
+            <li>{{ company.name }} - VAT: {{ company.vatNumber }}</li>
+        {% else %}
+            <li>No companies found.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
